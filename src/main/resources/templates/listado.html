@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Listado de Contribuyentes</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>Codigo</th>
+			<th>Importancia</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>NIT</th>
+			<th>Fecha Ingreso</th>
+		</thead>
+		<th:block th:each="c, row:${contribuyentes}">
+			<tr>
+				<th th:text="${c.cContribuyente}"/>
+				<th th:text="${c.importancia.importancia}"/>
+				<th th:text="${c.nombre}"/>
+				<th th:text="${c.apellido}"/>
+				<th th:text="${c.nit}"/>
+				<th th:text="${#dates.format(c.fechaIngreso, 'dd/MM/yyyy')}"/>
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>
